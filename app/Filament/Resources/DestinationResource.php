@@ -39,6 +39,8 @@ class DestinationResource extends Resource
                 Section::make('Foto')
                     ->schema([
                         FileUpload::make('image')
+                            ->disk('gcs')
+                            ->directory('images')
                             ->hiddenLabel()
                             ->image()
                             ->imageEditor()
