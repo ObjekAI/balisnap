@@ -1,0 +1,32 @@
+name: Deploy to Compute Engine
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run SSH commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            echo "Deploying to server..."
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            cd /home/${{ secrets.USERNAME }}/website/balisnap
+
+            git pull origin master
+            npm run build
+            php artisan optimize:clear
+            php artisan optimize
