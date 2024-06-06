@@ -36,6 +36,15 @@ class DestinationResource extends Resource
                             ->required(),
                     ]),
 
+                Section::make('Koordinat')
+                    ->schema([
+                        TextInput::make('latitude')
+                            ->label('Latitude'),
+
+                        TextInput::make('longitude')
+                            ->label('Longitude'),
+                    ]),
+
                 Section::make('Foto')
                     ->schema([
                         FileUpload::make('image')
@@ -64,6 +73,12 @@ class DestinationResource extends Resource
                 TextColumn::make('description')
                     ->label('Deskripsi')
                     ->limit(50),
+
+                TextColumn::make('latitude')
+                    ->label('Latitude'),
+
+                TextColumn::make('longitude')
+                    ->label('Longitude'),
             ])
             ->filters([
                 //
