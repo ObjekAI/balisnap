@@ -9,10 +9,12 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
 class DestinationResource extends Resource
 {
@@ -28,7 +30,12 @@ class DestinationResource extends Resource
                     ->schema([
                         TextInput::make('name')
                             ->label('Nama')
-                            ->required(),
+                            ->required()
+                            ->live()
+                            ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state))),
+
+                        TextInput::make('slug')
+                            ->label('Slug'),
 
                         Textarea::make('description')
                             ->label('Deskripsi')
