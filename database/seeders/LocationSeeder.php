@@ -45,10 +45,6 @@ class LocationSeeder extends Seeder
                 'link' => 'https://maps.app.goo.gl/MeX4Eg9qmEZjBF5A6',
             ],
             [
-                'name' => 'Ayam Betutu Men Tempeh',
-                'link' => 'https://maps.app.goo.gl/27jXTApCSzHAyhYu9',
-            ],
-            [
                 'name' => 'Nasi Jinggo Om Gundul',
                 'link' => 'https://maps.app.goo.gl/KwLhX1cXYMX3tbjG6',
             ],
