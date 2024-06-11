@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FoodResource\Pages;
+use App\Filament\Resources\FoodResource\RelationManagers\LocationsRelationManager;
 use App\Models\Food;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
@@ -83,7 +84,7 @@ class FoodResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            LocationsRelationManager::class,
         ];
     }
 

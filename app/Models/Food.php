@@ -16,6 +16,6 @@ class Food extends Model
 
     public function locations(): BelongsToMany
     {
-        return $this->belongsToMany(Location::class, 'food_locations');
+        return $this->belongsToMany(Location::class, 'food_locations', 'food_id', 'location_id');
     }
 }
