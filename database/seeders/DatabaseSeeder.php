@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             DestinationSeeder::class,
             LocationSeeder::class,
+            FoodSeeder::class,
         ]);
     }
 }
